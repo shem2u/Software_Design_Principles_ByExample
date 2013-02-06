@@ -1,0 +1,1 @@
+This is a collection of code examples to demonstrate software violating a given software design principle, ways to identify the violation, and at least one technique to follow the principle.
