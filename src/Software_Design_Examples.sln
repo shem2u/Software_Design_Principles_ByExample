@@ -1,9 +1,16 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Software_Design_Examples", "Software_Design_Examples.csproj", "{C7B6E9DA-7E8D-4E7E-BEE4-A80D1DF51EAB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Software_Design_Examples", "Software_Design_Examples\Software_Design_Examples.csproj", "{C7B6E9DA-7E8D-4E7E-BEE4-A80D1DF51EAB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Software_Design_Examples_Tests", "..\Software_Design_Examples_Tests\Software_Design_Examples_Tests.csproj", "{244C0506-7187-4734-8FDC-E0BC1207F49C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Software_Design_Examples_Tests", "Software_Design_Examples_Tests\Software_Design_Examples_Tests.csproj", "{244C0506-7187-4734-8FDC-E0BC1207F49C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{D124646E-34C0-4BA7-A86D-673CD5D1CE0F}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

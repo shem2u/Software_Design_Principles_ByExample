@@ -42,9 +42,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Single_Responsibility\An_Initial_Design\" />
     <Folder Include="Single_Responsibility\Feature_Change_1\" />
     <Folder Include="Single_Responsibility\Feature_Change_2\" />
-    <Folder Include="Single_Responsibility\Initial_Design\" />
     <Folder Include="Single_Responsibility\Refactored\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
