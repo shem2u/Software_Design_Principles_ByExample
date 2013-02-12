@@ -53,7 +53,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Single_Responsibility\An_Initial_Design_Specification.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Software_Design_Examples\Software_Design_Examples.csproj">
+      <Project>{C7B6E9DA-7E8D-4E7E-BEE4-A80D1DF51EAB}</Project>
+      <Name>Software_Design_Examples</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
