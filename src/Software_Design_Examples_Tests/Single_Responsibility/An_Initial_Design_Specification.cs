@@ -2,13 +2,15 @@
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Should;
+using Software_Design_Examples;
+using Software_Design_Examples.Single_Responsibility;
 using Software_Design_Examples.Single_Responsibility.An_Initial_Design;
 
 namespace Software_Design_Examples_Tests.Single_Responsibility
 {
     /// <summary>
     /// This is an example of a class violating the Single Responsibility Principle
-    /// The tests below expose two orthoginal concerns (responsibilities)
+    /// The tests below expose orthoginal concerns (responsibilities)
     /// 
     /// *** Context ***
     /// This is intended to support a job scheduling feature of larger facilities 
@@ -30,12 +32,31 @@ namespace Software_Design_Examples_Tests.Single_Responsibility
     /// See wiki ( http:// ) for details
     /// </summary>
     [TestClass]
-    public class An_Initial_Design_Specification
+    public class An_Initial_Design_Specification : IntegratedDbTest
     {
+        [ClassInitialize]
+        public static void OnTestInit(TestContext unused)
+        {
+            WithDbContext(context =>
+                {
+                    var knownJob = context.Job.Create();
+                    knownJob.Description = "Testing Initial Design";
+                    context.Job.Add(knownJob);
+                    context.SaveChanges();
+                });
+        }
+
+        private int GetKnownTaskId()
+        {
+            var taskId = 0;
+            WithDbContext(ctx => taskId = ctx.Job.First().Id);
+            return taskId;
+        }
+
         [TestMethod]
         public void Should_Execute_Valid_Book_Job_Command()
         {
-            var request = new JobRequest{RequestedByDate = DateTime.Now.AddDays(14), RequestedTask = 12345};
+            var request = new JobRequest{RequestedByDate = DateTime.Now.AddDays(14), RequestedTask = GetKnownTaskId()};
             var sut = new JobProcessor();
             var result = sut.Process(request);
             result.Accepted.ShouldBeTrue();
@@ -45,7 +66,7 @@ namespace Software_Design_Examples_Tests.Single_Responsibility
         public void Should_Reject_Book_Job_Command_For_The_Past_With_Input_Errors()
         {
             var request = new JobRequest
-                {RequestedByDate = DateTime.Now.Subtract(TimeSpan.FromDays(1)), RequestedTask = 12345};
+                {RequestedByDate = DateTime.Now.Subtract(TimeSpan.FromDays(1)), RequestedTask = GetKnownTaskId()};
             var sut = new JobProcessor();
             var result = sut.Process(request);
             result.Errors.Any(x => x.GetType() == typeof(JobInThePastError)).ShouldBeTrue();
@@ -54,7 +75,7 @@ namespace Software_Design_Examples_Tests.Single_Responsibility
         [TestMethod]
         public void Should_Reject_Book_Job_Command_For_Unknown_Task_Id_With_UnknownJobError()
         {
-            var request = new JobRequest {RequestedByDate = DateTime.Now.AddDays(1), RequestedTask = 666};
+            var request = new JobRequest {RequestedByDate = DateTime.Now.AddDays(1), RequestedTask = 1231354957};
             var sut = new JobProcessor();
             var result = sut.Process(request);
             result.Errors.Any(x => x.GetType() == typeof(UnknownJobIdError)).ShouldBeTrue();
@@ -63,7 +84,7 @@ namespace Software_Design_Examples_Tests.Single_Responsibility
         [TestMethod]
         public void Should_Schedule_Job_Based_On_Results()
         {
-            var request = new JobRequest {RequestedByDate = DateTime.Now.AddDays(14), RequestedTask = 12345};
+            var request = new JobRequest {RequestedByDate = DateTime.Now.AddDays(14), RequestedTask = GetKnownTaskId()};
             var sut = new JobProcessor();
             var result = sut.Process(request);
             result.ScheduledToBeginOn.CompareTo(request.RequestedByDate).ShouldBeInRange(-14, 0);

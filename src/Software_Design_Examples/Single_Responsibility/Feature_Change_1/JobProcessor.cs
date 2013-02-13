@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using Software_Design_Examples.Single_Responsibility.An_Initial_Design;
 
-namespace Software_Design_Examples.Single_Responsibility.An_Initial_Design
+namespace Software_Design_Examples.Single_Responsibility.Feature_Change_1
 {
     /// <summary>
     /// This class is responsible for scheduling engineers when given a 
@@ -9,8 +11,8 @@ namespace Software_Design_Examples.Single_Responsibility.An_Initial_Design
     /// </summary>
     public class JobProcessor
     {
-        public JobRequestResult Process(JobRequest request)
-        {
+        public JobRequestResult Process(JobRequest request) {
+#region Unaffected By Change
             if (request.RequestedByDate.CompareTo(DateTime.Now) < 0)
                 return new JobRequestResult
                     {Accepted = false, Errors = new List<IJobRequestErrors> {new JobInThePastError()}};
@@ -20,12 +22,24 @@ namespace Software_Design_Examples.Single_Responsibility.An_Initial_Design
                 if(matchingTasks == null)
                     return new JobRequestResult
                         {Accepted = false, Errors = new List<IJobRequestErrors> {new UnknownJobIdError()}};
+#endregion Unaffected By Change
+#region New Code to Support limiting number of jobs per day to 4
+                var alljobs = from job in ctx.ScheduledJob
+                                                    select job;
+                var jobsScheduledForRequestedDate =
+                    alljobs.Where(x => x.ScheduledOn.Equals(request.RequestedByDate));
+                if (jobsScheduledForRequestedDate.Count() > 3)
+                    return new JobRequestResult
+                        {Accepted = false, Errors = new List<IJobRequestErrors> {new RequestedDateFullError()}};
+#endregion New Code to Support limiting number of jobs per day to 4
+#region Unaffected By Change
                 var scheduledJob = ctx.ScheduledJob.Create();
                 scheduledJob.ScheduledOn = request.RequestedByDate;
                 ctx.ScheduledJob.Add(scheduledJob);
                 ctx.SaveChanges();
             }
             return new JobRequestResult {Accepted = true, ScheduledToBeginOn = request.RequestedByDate};
+#endregion Unaffected By Change
         }
     }
 }

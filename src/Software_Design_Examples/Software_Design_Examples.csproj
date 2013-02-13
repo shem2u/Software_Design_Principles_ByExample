@@ -46,7 +46,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SharedDbContext.cs" />
     <Compile Include="Single_Responsibility\An_Initial_Design\IJobRequestErrors.cs" />
     <Compile Include="Single_Responsibility\An_Initial_Design\IJobRequestIsInThePast.cs" />
     <Compile Include="Single_Responsibility\An_Initial_Design\IUnknownJobId.cs" />
@@ -55,9 +57,13 @@
     <Compile Include="Single_Responsibility\An_Initial_Design\JobRequest.cs" />
     <Compile Include="Single_Responsibility\An_Initial_Design\JobRequestResult.cs" />
     <Compile Include="Single_Responsibility\An_Initial_Design\UnknownJobIdError.cs" />
+    <Compile Include="Single_Responsibility\AvailableJob.cs" />
+    <Compile Include="Single_Responsibility\Feature_Change_1\JobProcessor.cs" />
+    <Compile Include="Single_Responsibility\Feature_Change_1\RequestedDateFullError.cs" />
+    <Compile Include="Single_Responsibility\ISingleResponsibilityContext.cs" />
+    <Compile Include="Single_Responsibility\ScheduledJob.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Single_Responsibility\Feature_Change_1\" />
     <Folder Include="Single_Responsibility\Feature_Change_2\" />
     <Folder Include="Single_Responsibility\Refactored\" />
   </ItemGroup>
