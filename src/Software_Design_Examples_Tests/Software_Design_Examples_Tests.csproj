@@ -60,7 +60,12 @@
     <Compile Include="IntegratedDbTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Single_Responsibility\An_Initial_Design_Specification.cs" />
-    <Compile Include="Single_Responsibility\First_Feature_Change_Specification.cs" />
+    <Compile Include="Single_Responsibility\Feature_Change_1_Specification.cs" />
+    <Compile Include="Single_Responsibility\Refactored\EmergencyRequestScheduling_Specification.cs" />
+    <Compile Include="Single_Responsibility\Refactored\EmergencyRequestValidation_Specification.cs" />
+    <Compile Include="Single_Responsibility\Feature_Change_2_Specification.cs" />
+    <Compile Include="Single_Responsibility\Refactored\RegularRequestScheduling_Specification.cs" />
+    <Compile Include="Single_Responsibility\Refactored\RegularRequestValidation_Specification.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Software_Design_Examples\Software_Design_Examples.csproj">

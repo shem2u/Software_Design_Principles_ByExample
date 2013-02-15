@@ -60,13 +60,21 @@
     <Compile Include="Single_Responsibility\AvailableJob.cs" />
     <Compile Include="Single_Responsibility\Feature_Change_1\JobProcessor.cs" />
     <Compile Include="Single_Responsibility\Feature_Change_1\RequestedDateFullError.cs" />
+    <Compile Include="Single_Responsibility\Feature_Change_2\EmergencyJobScheduled.cs" />
+    <Compile Include="Single_Responsibility\Feature_Change_2\JobProcessor.cs" />
+    <Compile Include="Single_Responsibility\Feature_Change_2\JobRequest.cs" />
+    <Compile Include="Single_Responsibility\Feature_Change_2\RequestedDateTooSoonError.cs" />
+    <Compile Include="Single_Responsibility\Feature_Change_2\UberJobProcessor.cs" />
+    <Compile Include="Single_Responsibility\ISendMessages.cs" />
     <Compile Include="Single_Responsibility\ISingleResponsibilityContext.cs" />
+    <Compile Include="Single_Responsibility\Refactored\DateInThePastValidationError.cs" />
+    <Compile Include="Single_Responsibility\Refactored\EmergencyRequestValidator.cs" />
+    <Compile Include="Single_Responsibility\Refactored\IValidationErrors.cs" />
+    <Compile Include="Single_Responsibility\Refactored\JobRequest.cs" />
+    <Compile Include="Single_Responsibility\Refactored\JobRequestValidationResult.cs" />
     <Compile Include="Single_Responsibility\ScheduledJob.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Single_Responsibility\Feature_Change_2\" />
-    <Folder Include="Single_Responsibility\Refactored\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
