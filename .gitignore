@@ -80,7 +80,7 @@ ipch/
 # ReSharper is a .NET coding add-in
 _ReSharper*
 
-# NCrunch
+# NCrunch is a .Net continuous test add-in
 *ncrunch*
 .*crunch*.local.xml
 
