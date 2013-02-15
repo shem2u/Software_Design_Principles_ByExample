@@ -39,9 +39,10 @@ namespace Software_Design_Examples_Tests.Single_Responsibility
     /// See wiki for details ()
     /// </summary>
     [TestClass]
-    public class First_Feature_Change_Specification : IntegratedDbTest
+    public class Feature_Change_1_Specification : IntegratedDbTest
     {
         private static DateTime _dateWithTooManyScheduledJobs = DateTime.Now.AddDays(4);
+
         [ClassInitialize]
         public static void OnTestInit(TestContext unused)
         {

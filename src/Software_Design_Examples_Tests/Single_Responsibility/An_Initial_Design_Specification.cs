@@ -34,6 +34,7 @@ namespace Software_Design_Examples_Tests.Single_Responsibility
     [TestClass]
     public class An_Initial_Design_Specification : IntegratedDbTest
     {
+
         [ClassInitialize]
         public static void OnTestInit(TestContext unused)
         {
