@@ -15,13 +15,13 @@ namespace Software_Design_Examples.Single_Responsibility.Feature_Change_1
 #region Unaffected By Change
             if (request.RequestedByDate.CompareTo(DateTime.Now) < 0)
                 return new JobRequestResult
-                    {Accepted = false, Errors = new List<IJobRequestErrors> {new JobInThePastError()}};
+                    {Accepted = false, Errors = new List<IJobRequestError> {new JobInThePastError()}};
             using (var ctx = new SharedDbContext())
             {
                 var matchingTasks = ctx.Job.Find(request.RequestedTask);
                 if(matchingTasks == null)
                     return new JobRequestResult
-                        {Accepted = false, Errors = new List<IJobRequestErrors> {new UnknownJobIdError()}};
+                        {Accepted = false, Errors = new List<IJobRequestError> {new UnknownJobIdError()}};
 #endregion Unaffected By Change
 #region New Code to Support limiting number of jobs per day to 4
                 var maximumNumberOfJobsAlreadyScheduled = (from job in ctx.ScheduledJob
@@ -29,7 +29,7 @@ namespace Software_Design_Examples.Single_Responsibility.Feature_Change_1
                                                            select job).Count() > 3;
                 if (maximumNumberOfJobsAlreadyScheduled)
                     return new JobRequestResult
-                        {Accepted = false, Errors = new List<IJobRequestErrors> {new RequestedDateFullError()}};
+                        {Accepted = false, Errors = new List<IJobRequestError> {new RequestedDateFullError()}};
 #endregion New Code to Support limiting number of jobs per day to 4
 #region Unaffected By Change
                 var scheduledJob = ctx.ScheduledJob.Create();

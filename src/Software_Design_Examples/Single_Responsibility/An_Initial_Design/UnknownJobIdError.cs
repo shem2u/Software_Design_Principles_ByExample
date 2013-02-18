@@ -1,4 +1,4 @@
 namespace Software_Design_Examples.Single_Responsibility.An_Initial_Design
 {
-    public class UnknownJobIdError : IUnknownJobId {}
+    public class UnknownJobIdError : IJobRequestError{}
 }

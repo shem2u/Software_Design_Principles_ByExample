@@ -49,9 +49,7 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SharedDbContext.cs" />
-    <Compile Include="Single_Responsibility\An_Initial_Design\IJobRequestErrors.cs" />
-    <Compile Include="Single_Responsibility\An_Initial_Design\IJobRequestIsInThePast.cs" />
-    <Compile Include="Single_Responsibility\An_Initial_Design\IUnknownJobId.cs" />
+    <Compile Include="Single_Responsibility\An_Initial_Design\IJobRequestError.cs" />
     <Compile Include="Single_Responsibility\An_Initial_Design\JobInThePastError.cs" />
     <Compile Include="Single_Responsibility\An_Initial_Design\JobProcessor.cs" />
     <Compile Include="Single_Responsibility\An_Initial_Design\JobRequest.cs" />

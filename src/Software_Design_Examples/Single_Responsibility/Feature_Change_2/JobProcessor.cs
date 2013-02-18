@@ -19,12 +19,12 @@ namespace Software_Design_Examples.Single_Responsibility.Feature_Change_2
             #region Unaffected logic
             if (request.RequestedByDate.CompareTo(DateTime.Now) < 0)
                 return new JobRequestResult
-                    {Accepted = false, Errors = new List<IJobRequestErrors> {new JobInThePastError()}};
+                    {Accepted = false, Errors = new List<IJobRequestError> {new JobInThePastError()}};
             #endregion Unaffected logic
             #region Altered Logic to support 3 days in the future limit for non-emergency requests
             if (request.RequestedByDate.CompareTo(DateTime.Now.AddDays(2)) <= 0)
                 return new JobRequestResult
-                    {Accepted = false, Errors = new List<IJobRequestErrors> {new RequestedDateTooSoonError()}};
+                    {Accepted = false, Errors = new List<IJobRequestError> {new RequestedDateTooSoonError()}};
             #endregion Altered Logic to support 2 days in the future limit for non-emergency requests
             #region Unaffected logic
             using (var ctx = new SharedDbContext())
@@ -32,13 +32,13 @@ namespace Software_Design_Examples.Single_Responsibility.Feature_Change_2
                 var matchingTasks = ctx.Job.Find(request.RequestedTask);
                 if (matchingTasks == null)
                     return new JobRequestResult
-                        {Accepted = false, Errors = new List<IJobRequestErrors> {new UnknownJobIdError()}};
+                        {Accepted = false, Errors = new List<IJobRequestError> {new UnknownJobIdError()}};
                 var maximumNumberOfJobsAlreadyScheduled = (from job in ctx.ScheduledJob
                                                            where job.ScheduledOn.Equals(request.RequestedByDate)
                                                            select job).Count() > 3;
                 if (maximumNumberOfJobsAlreadyScheduled)
                     return new JobRequestResult
-                        {Accepted = false, Errors = new List<IJobRequestErrors> {new RequestedDateFullError()}};
+                        {Accepted = false, Errors = new List<IJobRequestError> {new RequestedDateFullError()}};
                 var scheduledJob = ctx.ScheduledJob.Create();
                 scheduledJob.ScheduledOn = request.RequestedByDate;
                 ctx.ScheduledJob.Add(scheduledJob);

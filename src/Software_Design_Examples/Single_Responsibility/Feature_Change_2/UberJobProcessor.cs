@@ -36,13 +36,13 @@ namespace Software_Design_Examples.Single_Responsibility.Feature_Change_2
             {
                 if (request.RequestedByDate.CompareTo(DateTime.Now) < 0)
                     return new JobRequestResult
-                        {Accepted = false, Errors = new List<IJobRequestErrors> {new JobInThePastError()}};
+                        {Accepted = false, Errors = new List<IJobRequestError> {new JobInThePastError()}};
                 using (var ctx = new SharedDbContext())
                 {
                     var matchingTasks = ctx.Job.Find(request.RequestedTask);
                     if (matchingTasks == null)
                         return new JobRequestResult
-                            {Accepted = false, Errors = new List<IJobRequestErrors> {new UnknownJobIdError()}};
+                            {Accepted = false, Errors = new List<IJobRequestError> {new UnknownJobIdError()}};
                     var scheduledJob = ctx.ScheduledJob.Create();
                     scheduledJob.ScheduledOn = request.RequestedByDate;
                     ctx.ScheduledJob.Add(scheduledJob);
