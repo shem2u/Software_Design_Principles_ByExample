@@ -9,13 +9,13 @@ namespace Software_Design_Examples.Single_Responsibility.Refactored
          {
              if (DateTime.Now.CompareTo(request.RequestedByDate) > 0)
                  return new JobRequestValidationResult
-                     {Errors = new List<IValidationErrors> {new DateInThePastValidationError()}};
+                     {Errors = new List<IValidationError> {new DateInThePastValidationError()}};
              using (var context = new SharedDbContext())
              {
                  var matchingKnownJob = context.Job.Find(request.RequestedTask);
                  if (matchingKnownJob == null)
                      return new JobRequestValidationResult
-                         {Errors = new List<IValidationErrors> {new UnknownJobValidationError()}};
+                         {Errors = new List<IValidationError> {new UnknownJobValidationError()}};
              }
              return new JobRequestValidationResult{IsValid = true};
          }

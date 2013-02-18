@@ -2,7 +2,6 @@
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Should;
-using Software_Design_Examples.Single_Responsibility;
 using Software_Design_Examples.Single_Responsibility.An_Initial_Design;
 using Software_Design_Examples.Single_Responsibility.Feature_Change_1;
 using Software_Design_Examples.Single_Responsibility.Feature_Change_2;
@@ -178,15 +177,5 @@ namespace Software_Design_Examples_Tests.Single_Responsibility
         }
 
         #endregion Existing Behaviors
-    }
-
-    public class FakeMessageSender : ISendMessages
-    {
-        public IMessage SentMessage { get; private set; }
-
-        public void Send(IMessage message)
-        {
-            SentMessage = message;
-        }
     }
 }

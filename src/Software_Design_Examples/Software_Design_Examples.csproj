@@ -68,10 +68,22 @@
     <Compile Include="Single_Responsibility\ISendMessages.cs" />
     <Compile Include="Single_Responsibility\ISingleResponsibilityContext.cs" />
     <Compile Include="Single_Responsibility\Refactored\DateInThePastValidationError.cs" />
+    <Compile Include="Single_Responsibility\Refactored\DateTooSoonForNonEmergencyError.cs" />
+    <Compile Include="Single_Responsibility\Refactored\EmergencyJobScheduled.cs" />
+    <Compile Include="Single_Responsibility\Refactored\EmergencyJobScheduler.cs" />
     <Compile Include="Single_Responsibility\Refactored\EmergencyRequestValidator.cs" />
-    <Compile Include="Single_Responsibility\Refactored\IValidationErrors.cs" />
+    <Compile Include="Single_Responsibility\Refactored\IJobRequestError.cs" />
+    <Compile Include="Single_Responsibility\Refactored\IJobSchedulingError.cs" />
+    <Compile Include="Single_Responsibility\Refactored\IValidationError.cs" />
     <Compile Include="Single_Responsibility\Refactored\JobRequest.cs" />
+    <Compile Include="Single_Responsibility\Refactored\JobRequestController.cs" />
+    <Compile Include="Single_Responsibility\Refactored\JobRequestResult.cs" />
     <Compile Include="Single_Responsibility\Refactored\JobRequestValidationResult.cs" />
+    <Compile Include="Single_Responsibility\Refactored\JobScheduler.cs" />
+    <Compile Include="Single_Responsibility\Refactored\RegularRequestValidator.cs" />
+    <Compile Include="Single_Responsibility\Refactored\RequestedDateFullError.cs" />
+    <Compile Include="Single_Responsibility\Refactored\ScheduledJobResult.cs" />
+    <Compile Include="Single_Responsibility\Refactored\UnknownJobValidationError.cs" />
     <Compile Include="Single_Responsibility\ScheduledJob.cs" />
   </ItemGroup>
   <ItemGroup />

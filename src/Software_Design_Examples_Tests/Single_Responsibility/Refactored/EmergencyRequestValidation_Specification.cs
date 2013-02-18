@@ -32,7 +32,7 @@ namespace Software_Design_Examples_Tests.Single_Responsibility.Refactored
             WithDbContext(context =>
                 {
                     var knownJob = context.Job.Create();
-                    knownJob.Description = "Testing Initial Design";
+                    knownJob.Description = "Testing Emergency Request Validation Design";
                     context.Job.Add(knownJob);
                     context.SaveChanges();
                 });
