@@ -17,16 +17,6 @@ namespace Software_Design_Examples_Tests.Single_Responsibility
     /// inheritence in the solution should provide further clarity of the responsibilities.
     /// 
     /// *** Context ***
-    /// The change introduced in the Feature_Change_1.JobProcessor have been successfully 
-    /// deployed and met the immediate need.  However, they introduced a new issue, in
-    /// rare occasions the requested job is urgently needed and should take priority 
-    /// over any existing requests.  After discussing it with the Engineering and Adminitration
-    /// staff it is decided that all emergency requests should be accepted and the Engineering
-    /// staff will decide how to prioritize and execute the requests.  They will be responsible
-    /// for moving non-emergency requests to later dates to accomodate emergencies.  To make this
-    /// easier on the staff, all new jobs will be scheduled no earlier than 3 days in the future.
-    /// The staff will attempt to complete work ahead of schedule if possible and will contact
-    /// Building Adminstrators if their request can be met sooner.
     /// 
     /// Non-Emergency Success Scenario:
     /// Given a Building Administrator with rights to request jobs
@@ -51,7 +41,7 @@ namespace Software_Design_Examples_Tests.Single_Responsibility
     /// And schedule the job on the requested date
     /// And send an text message to the Engineer staff including how many jobs are scheduled
     /// 
-    /// See wiki for details ()
+    /// See wiki for details (https://github.com/shem2u/Software_Design_Principles_ByExample/wiki/Single-Responsibility)
     /// </summary>
     [TestClass]
     public class Feature_Change_2_Specification : IntegratedDbTest

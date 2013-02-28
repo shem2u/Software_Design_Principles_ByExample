@@ -22,7 +22,7 @@ namespace Software_Design_Examples_Tests.Single_Responsibility.Refactored
     /// scheduled for the next available date.
     /// 
     /// For context and a more detailed explanation of these decisions, please
-    /// see the wiki ()
+    /// see the wiki (https://github.com/shem2u/Software_Design_Principles_ByExample/wiki/Single-Responsibility)
     /// </summary>
     [TestClass]
     public class JobScheduling_Specification : IntegratedDbTest

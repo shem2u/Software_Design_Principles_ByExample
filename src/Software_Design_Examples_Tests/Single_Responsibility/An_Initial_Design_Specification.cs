@@ -29,7 +29,7 @@ namespace Software_Design_Examples_Tests.Single_Responsibility
     /// Then the system should accept the request
     /// And schedule an engineer to begin the job on the first available date
     /// 
-    /// See wiki ( http:// ) for details
+    /// See wiki (https://github.com/shem2u/Software_Design_Principles_ByExample/wiki/Single-Responsibility) for details
     /// </summary>
     [TestClass]
     public class An_Initial_Design_Specification : IntegratedDbTest

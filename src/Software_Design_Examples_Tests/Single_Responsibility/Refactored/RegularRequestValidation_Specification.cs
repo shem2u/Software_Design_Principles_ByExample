@@ -21,7 +21,7 @@ namespace Software_Design_Examples_Tests.Single_Responsibility.Refactored
     /// have a date in the past or earlier than 4 days from the current date.
     /// 
     /// For context and a more detailed explanation of these decisions, please
-    /// see the wiki ()
+    /// see the wiki (https://github.com/shem2u/Software_Design_Principles_ByExample/wiki/Single-Responsibility)
     /// </summary>
     [TestClass]
     public class RegularRequestValidation_Specification : IntegratedDbTest

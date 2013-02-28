@@ -69,7 +69,6 @@
     <Compile Include="Single_Responsibility\Feature_Change_2_Specification.cs" />
     <Compile Include="Single_Responsibility\Refactored\JobRequest_Specification.cs" />
     <Compile Include="Single_Responsibility\Refactored\JobScheduling_Specification.cs" />
-    <Compile Include="Single_Responsibility\Refactored\RegularRequestScheduling_Specification.cs" />
     <Compile Include="Single_Responsibility\Refactored\RegularRequestValidation_Specification.cs" />
   </ItemGroup>
   <ItemGroup>

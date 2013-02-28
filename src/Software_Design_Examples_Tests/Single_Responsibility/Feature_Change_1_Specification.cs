@@ -15,13 +15,7 @@ namespace Software_Design_Examples_Tests.Single_Responsibility
     /// (or not) begins to highlight the diferentiation of responsibility.
     /// 
     /// *** Context ***
-    /// The system was deployed and functioned as designed but an issue was discovered - 
-    /// the Engineering Team could only accomodate an average of 4 jobs a day.  The system
-    /// had no contraints on the number of jobs that could be scheduled for a given day.
-    /// Most of the time - and for the first several months of the system's life - this did
-    /// not present an issue, but eventually several days were overbooked and the team had
-    /// to work extra hours to accomodate the requests.  It was requested that the system be 
-    /// altered to limit the number of jobs per day to 4.
+    /// It was requested that the system be altered to limit the number of jobs per day to 4.
     /// 
     /// Success Scenario:
     /// Given a Building Administrator with rights to request jobs
@@ -36,7 +30,7 @@ namespace Software_Design_Examples_Tests.Single_Responsibility
     /// When the Administrator submits the job request
     /// Then the System should reject the request
     /// 
-    /// See wiki for details ()
+    /// See wiki for details (https://github.com/shem2u/Software_Design_Principles_ByExample/wiki/Single-Responsibility)
     /// </summary>
     [TestClass]
     public class Feature_Change_1_Specification : IntegratedDbTest
