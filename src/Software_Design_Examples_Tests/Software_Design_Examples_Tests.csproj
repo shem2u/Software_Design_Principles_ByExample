@@ -58,6 +58,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IntegratedDbTest.cs" />
+    <Compile Include="Open_Closed\AddingAnotherRequestTypeSpecifications.cs" />
+    <Compile Include="Open_Closed\ValidationChanges.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Single_Responsibility\An_Initial_Design_Specification.cs" />
     <Compile Include="Single_Responsibility\FakeMessageSender.cs" />
@@ -80,7 +82,11 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Dependency_Inversion\" />
+    <Folder Include="Interface_Segregation\" />
+    <Folder Include="Liskov_Substitution\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="_bin_deployable\sqlceca40.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
